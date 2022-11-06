@@ -20,7 +20,7 @@ public class Player : MonoBehaviour
     private string WALK_ANIMATION = "Walk";
 
     private bool isGrounded = true;
-    private string G
+    private string GROUND_TAG = "Ground"; // use variable more, needs to match up with the Ground tag
 
     private SpriteRenderer sr;
 
@@ -46,11 +46,11 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D collision) //function used to detect collision between game obejct
     {
-        if (collision.gameObject.CompareTag("Ground"))
+        if (collision.gameObject.CompareTag(GROUND_TAG))  //check if the object collice with the object with ground tag
         {
-
+            isGrounded = true;  //therefore when the object collide with ground, it can jump again
         }
     }
 
