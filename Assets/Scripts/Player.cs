@@ -22,6 +22,8 @@ public class Player : MonoBehaviour
     private bool isGrounded = true;
     private string GROUND_TAG = "Ground"; // use variable more, needs to match up with the Ground tag
 
+    private string ENERMY_TAG = "Enermy";
+
     private SpriteRenderer sr;
 
     private void Awake()
@@ -34,7 +36,7 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     void PlayerJump()
@@ -51,6 +53,19 @@ public class Player : MonoBehaviour
         if (collision.gameObject.CompareTag(GROUND_TAG))  //check if the object collice with the object with ground tag
         {
             isGrounded = true;  //therefore when the object collide with ground, it can jump again
+        }
+        if (collision.gameObject.CompareTag(ENERMY_TAG))  //check if the object collice with the object with the enermy
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)   //another way to test for collision, you have to check the is trigger in the inspector panel
+    {
+        // the ghost can jsut pass through it without colliding
+        if (collision.gameObject.CompareTag(ENERMY_TAG))
+        {
+            Destroy(gameObject);
         }
     }
 
@@ -89,7 +104,7 @@ public class Player : MonoBehaviour
         }
         else
         {
-            anim.SetBool(WALK_ANIMATION, false  );
+            anim.SetBool(WALK_ANIMATION, false);
         }
 
 

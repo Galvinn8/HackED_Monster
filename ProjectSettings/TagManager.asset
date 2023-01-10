@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ground
+  - Enermy
   layers:
   - Default
   - TransparentFX
@@ -12,7 +13,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Enemy
   - 
   - 
   - 
@@ -47,4 +48,10 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 1579398439
+    locked: 0
+  - name: Enermy
+    uniqueID: 479116357
+    locked: 0
+  - name: UI
+    uniqueID: 837320699
     locked: 0
